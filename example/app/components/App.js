@@ -1,10 +1,11 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import PropTypes from 'prop-types';
 
 class App extends React.Component {
   static propTypes = {
-    children: React.PropTypes.node
+    children: PropTypes.node
   };
 
   render() {

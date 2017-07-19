@@ -1,10 +1,11 @@
 import React from 'react';
 import Document from 'components/common/Document';
 import {Link} from 'react-router';
+import PropTypes from 'prop-types';
 
 class RouterPage extends React.Component {
   static propTypes = {
-    children: React.PropTypes.node
+    children: PropTypes.node
   };
 
   render() {
@@ -24,4 +25,3 @@ class RouterPage extends React.Component {
 }
 
 export default RouterPage;
-
