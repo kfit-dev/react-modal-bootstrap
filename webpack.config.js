@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const camelCase = require('camelcase');
+const path = require('path');
 const pkg = require('./package.json');
 
 const capitalizeFirstLetter = (string) => {
@@ -9,6 +10,7 @@ const capitalizeFirstLetter = (string) => {
 const webpackConfig = {
   entry: './src/index.js',
   output: {
+    path: path.resolve(__dirname, "dist"),
     filename: pkg.name + '.js',
     library: capitalizeFirstLetter(camelCase(pkg.name)),
     libraryTarget: 'umd'
