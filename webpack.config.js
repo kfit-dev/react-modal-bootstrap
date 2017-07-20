@@ -1,12 +1,13 @@
-import webpack from 'webpack';
-import pkg from './package.json';
-import camelCase from 'camelcase';
+const webpack = require('webpack');
+const camelCase = require('camelcase');
+const pkg = require('./package.json');
 
 const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
 const webpackConfig = {
+  entry: './src/index.js',
   output: {
     filename: pkg.name + '.js',
     library: capitalizeFirstLetter(camelCase(pkg.name)),
@@ -36,8 +37,8 @@ const webpackConfig = {
     ]
   },
   resolve: {
-    modulesDirectories: ['node_modules', 'bower_components'],
-    extensions: ['', '.jsx', '.js']
+    modules: ['node_modules', 'bower_components'],
+    extensions: ['.jsx', '.js']
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -53,9 +54,8 @@ const webpackConfig = {
       output: {
         comments: false
       }
-    }),
-    new webpack.optimize.DedupePlugin()
+    })
   ]
 };
 
-export default webpackConfig;
+module.exports = webpackConfig;
