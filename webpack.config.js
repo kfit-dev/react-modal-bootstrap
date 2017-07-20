@@ -33,13 +33,18 @@ const webpackConfig = {
     loaders: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /(node_modules)/,
+        exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules)/,
+        loader: 'eslint-loader'
       }
     ]
   },
   resolve: {
-    modules: ['node_modules', 'bower_components'],
+    modules: ['node_modules', 'bower_components', 'src'],
     extensions: ['.jsx', '.js']
   },
   plugins: [
